@@ -28,6 +28,7 @@ class LinkedList
     loop do
       str << node.data.to_s
       break if node.next_node.nil?
+      str << " "
       node = node.next_node
     end
     str
