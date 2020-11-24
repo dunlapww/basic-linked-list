@@ -67,5 +67,33 @@ class LinkedListTest < Minitest::Test
     assert_equal "woo", list.insert(1, "woo")
     assert_equal "dop woo plop suu", list.to_string
   end
+  
+  def test_it_can_find
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    assert_equal "deep woo shi shu blop", list.to_string
+    assert_equal "shi", list.find(2, 1)
+    assert_equal "woo shi shu", list.find(1, 3)
+    result = "Error: start position outside linkedlist"
+    assert_equal result, list.find(7,2)
+    assert_equal "shi shu blop", list.find(2,4)
+  end
+  
+  def test_it_can_pop
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    assert_equal "deep woo shi shu blop", list.to_string
+    assert_equal "blop", list.pop
+    assert_equal "shu", list.pop
+    assert_equal "deep woo shi", list.to_string
+  end
 
 end
