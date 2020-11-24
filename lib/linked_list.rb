@@ -19,16 +19,12 @@ class LinkedList
     last_node(node)
   end
 
-  def count
-    return 0 if @head.nil?
-    node = @head
-    counter = 0
-    loop do
-      counter += 1
-      break if node.next_node.nil?
-      node = node.next_node
-    end
-    counter
+  def count(node = @head, counter = 0)
+    return counter if node.nil?
+    counter += 1
+    return counter if node.next_node.nil?
+    node = node.next_node
+    count(node, counter)
   end
 
   def to_string
