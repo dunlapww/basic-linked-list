@@ -33,5 +33,27 @@ class LinkedListTest < Minitest::Test
     list.append("doop")
     assert_equal "doop",list.to_string
   end
+  
+  def test_it_can_append_multiple_nodes
+    list = LinkedList.new
+    list.append("doop")
+    assert_equal "doop", list.head.data
+    assert_equal "deep", list.append("deep")
+    assert_equal "deep", list.head.next_node.data
+  end
+  
+  def test_it_can_count_multiple_nodes
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    assert_equal 2, list.count
+  end
+
+  def test_it_can_convert_multiple_nodes_to_a_string
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    assert_equal "doop deep", list.to_string
+  end
 
 end
