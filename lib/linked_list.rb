@@ -93,4 +93,13 @@ class LinkedList
     previous_node.next_node = nil
     node.data
   end
+
+  def includes?(element)
+    node = @head
+    until node.next_node.nil?
+      return true if node.data == element
+      node = node.next_node
+    end
+    false
+  end
 end
