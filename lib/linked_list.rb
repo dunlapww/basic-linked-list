@@ -8,15 +8,12 @@ class LinkedList
 
   def append(element)
     new_node = Node.new(element)
-    if @head.nil?
-      @head = new_node
-      return @head.data
-    end 
-    last_node.next_node = new_node
+    @head.nil? ? (@head = new_node) : (last_node.next_node = new_node)
     new_node.data
   end
     
   def last_node(node = @head)
+    return node if node.nil? 
     return node if node.next_node.nil?
     node = node.next_node
     last_node(node)
