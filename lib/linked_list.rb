@@ -56,10 +56,41 @@ class LinkedList
     new_node = Node.new(element)
     node_before_insertion = @head
     (position - 1).times do
-      node_before_insertion = node.next_node
+      node_before_insertion = node_before_insertion.next_node
     end
     new_node.next_node = node_before_insertion.next_node
     node_before_insertion.next_node = new_node
     new_node.data
+  end
+
+  def find(start_position, num_of_elements)
+    start_node = @head
+    start_position.times do
+      return "Error: start position outside linkedlist" if start_node.next_node.nil?
+      start_node = start_node.next_node
+    end
+    return "" if num_of_elements == 0
+    
+    str = start_node.data.to_s
+    return str if start_node.next_node.nil?
+
+    node = start_node.next_node
+    (num_of_elements - 1).times do
+      str << " " + node.data
+      return str if node.next_node.nil?
+      node = node.next_node
+    end
+    str
+  end
+
+  def pop
+    node = @head
+    previous_node = nil
+    until node.next_node.nil? do
+      previous_node = node
+      node = node.next_node
+    end
+    previous_node.next_node = nil
+    node.data
   end
 end
