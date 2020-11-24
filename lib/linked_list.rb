@@ -50,4 +50,16 @@ class LinkedList
     @head = new_head
     @head.data
   end
+
+  def insert(position, element)
+    return prepend(element) if position == 0
+    new_node = Node.new(element)
+    node_before_insertion = @head
+    (position - 1).times do
+      node_before_insertion = node.next_node
+    end
+    new_node.next_node = node_before_insertion.next_node
+    node_before_insertion.next_node = new_node
+    new_node.data
+  end
 end
