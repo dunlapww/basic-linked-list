@@ -27,17 +27,12 @@ class LinkedList
     count(node, counter)
   end
 
-  def to_string
-    return "" if @head.nil?
-    node = @head
-    str = ""
-    loop do
-      str << node.data.to_s
-      break if node.next_node.nil?
-      str << " "
-      node = node.next_node
-    end
-    str
+  def to_string(node = @head, str = "")
+    return str if node.nil?
+    node == @head ? (str << node.data.to_s) : (str << " " + node.data.to_s)
+    return str if node.next_node.nil?
+    node = node.next_node
+    to_string(node,str)
   end
 
   def prepend(element)
