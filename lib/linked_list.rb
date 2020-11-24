@@ -5,8 +5,18 @@ class LinkedList
   end
 
   def append(element)
-    @head = Node.new(element)
-    @head.data
+    if @head.nil?
+      @head = Node.new(element) if @head.nil? 
+      return @head.data
+    else
+      last_node = @head
+      until last_node.next_node.nil? do
+        last_node = last_node.next_node
+      end
+      new_node = Node.new(element)
+      last_node.next_node = new_node
+      return new_node.data
+    end
   end
 
   def count
