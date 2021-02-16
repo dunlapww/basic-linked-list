@@ -1,4 +1,4 @@
-https://badge.fury.io/for/rb/basic_linked_list
+[![Gem Version](https://badge.fury.io/rb/basic_linked_list.svg)](https://badge.fury.io/rb/basic_linked_list)
 
 # basic-linked-list
 This is a ruby gem that creates a linked list.  The BasicLinkedList object initializes as a single node object with a pointer to the next node (which initializes as nil).  Nodes can be appended to the BasicLinkedList using the .append method.  Other methods included with this LinkedList are:
