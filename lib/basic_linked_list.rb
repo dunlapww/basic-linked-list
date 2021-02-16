@@ -1,6 +1,6 @@
 require_relative 'node'
 
-class LinkedList
+class BasicLinkedList
   attr_reader :head
   def initialize
     @head = nil
